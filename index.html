@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Mummy 💖</title>
+  <style>
+    body, html {margin:0;padding:0;font-family: 'Segoe UI', sans-serif;background:#fff0f2;color:#2e2e2e;scroll-behavior: smooth;overflow-x:hidden;}
+    section {padding:100px 20px;max-width:800px;margin:auto;position:relative;}
+    h1, h2 {font-weight:600;margin-bottom:20px;text-align:center;}
+    p {line-height:1.6;text-align:center;}
+    .fade {opacity:0;transform:translateY(30px);transition:all 1s ease-out;}
+    .fade.visible {opacity:1;transform:translateY(0);}
+    .polaroid-container {display:flex;flex-direction:column;gap:40px;align-items:center;}
+    .polaroid {background:white;padding:10px;padding-bottom:50px;box-shadow:0 6px 15px rgba(0,0,0,0.2);width:300px;transform:rotate(-3deg);transition:transform 0.3s ease-in-out;}
+    .polaroid:hover {transform:scale(1.03) rotate(0deg);}
+    .polaroid img {width:100%;height:360px;border:none;border-radius:4px;}
+    .heart-emblem {position:absolute;bottom:16px;right:16px;background:rgba(255,202,212,0.95);border-radius:50%;width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:bold;border:2px dashed #f45b69;animation:glow 2s ease-in-out infinite alternate;z-index:2;}
+    @keyframes glow {from {box-shadow:0 0 8px #f45b69;} to {box-shadow:0 0 18px #ff6b81;}}/* Floating hearts animation */
+.floating-heart {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,105,180,0.7);
+  transform: rotate(45deg);
+  animation: floatUp linear infinite;
+  z-index: 999;
+  pointer-events: none;
+}
+.floating-heart::before, .floating-heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,105,180,0.7);
+  border-radius: 50%;
+}
+.floating-heart::before { top: -10px; left: 0; }
+.floating-heart::after { left: 10px; top: 0; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+}
+
+.container {scroll-snap-type:y mandatory;} section {scroll-snap-align:start;}
+
+  </style>
+</head>
+<body class="container">  <section id="header" class="fade">
+    <h1>🎂 Happy Birthday Mummy 💖</h1>
+    <p>Aap na bohot bohot achi ho...<br>
+    Hamesha jab bhi mai kuch mangta hu, aap bina soche mujhe de deti ho 😭💫<br>
+    Even meri bachpan ki chhoti chhoti khwahishein bhi aapne poori ki…<br>
+    Aur aaj bhi, jab mujhe kuch chahiye hota hai — sabse pehle mann mein aapka hi chehra aata hai 💭<br>
+    Sachi mummy... aap best ho.<br>
+    Main duniya ke sabse lucky logo mein se ek hu, kyunki meri mummy meri sabse acchi dost bhi hai ❤️<br>
+    Aapse hi mai sab kuch share karta hu — apne secrets, apni tension, aur apni chhoti khushiyaan tak 😭✨<br>
+    Meri pyari mummy💖<br>
+    Love you mummy, always 🫶</p>
+  </section>  <section id="photos" class="fade">
+    <h2>📷 Precious Memories</h2>
+    <div class="polaroid-container">
+      <div class="polaroid"><img src="https://i.postimg.cc/8P81LNNP/IMG-20251017-230356.jpg" alt="Mummy Photo 1"></div>
+      <div class="polaroid"><img src="https://i.postimg.cc/T2bxdFmz/IMG-20251017-230330.jpg" alt="Mummy Photo 2"></div>
+      <div class="polaroid"><img src="https://i.postimg.cc/4yDjtf9b/IMG-20251017-230535.jpg" alt="Mummy Photo 3"></div>
+      <div class="polaroid"><img src="https://i.postimg.cc/ZR3Qmkgd/IMG-20251017-230416.jpg" alt="Mummy Photo 4"></div>
+      <div class="polaroid"><img src="https://i.postimg.cc/nzv3549b/IMG-20250318-WA0026.jpg" alt="Mummy Photo 5"></div>
+      <div class="polaroid"><img src="https://i.postimg.cc/4N4WLhJv/IMG-20251017-WA0006.jpg" alt="Mummy Photo 6"></div>
+      <div class="polaroid"><img src="https://i.postimg.cc/0NSnMYCX/IMG-20251017-201640.jpg" alt="Mummy Photo 7"></div>
+    </div>
+  </section>  <section id="ending" class="fade">
+    <h2>❤️ Always Yours</h2>
+    <p>Love you Mummy, always 🫶</p>
+    <div class="heart-emblem">❤️</div>
+  </section>  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, {threshold:0.2});
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+    // Floating hearts generator
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+      heart.style.width = heart.style.height = (10 + Math.random() * 15) + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 400);
+  </script></body>
+</html>
